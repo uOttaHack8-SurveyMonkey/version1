@@ -206,6 +206,10 @@ export default function ChatterMonkey() {
           console.log("Ending call...");
           setCallStatus('rating');
           setShowButtons(false);
+          //api analyze call here
+          axios.post('/api/analyze', { history: chatHistory })
+            .then(res => console.log("Dữ liệu phân tích:", res.data))
+            .catch(err => console.error("Lỗi phân tích:", err));
         } else {
           // TRƯỜNG HỢP 2: Chưa kết thúc -> Bật lại Mic để nghe tiếp
           setIsListening(true);
