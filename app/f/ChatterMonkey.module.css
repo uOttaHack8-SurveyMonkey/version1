@@ -1,0 +1,275 @@
+.container {
+  margin: 0;
+  background: #f2f2f7;
+  font-family: system-ui, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.topDisclaimer {
+  width: 100%;
+  background: #fff3cd;
+  border-bottom: 2px solid #ffc107;
+  padding: 16px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.topDisclaimer p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #856404;
+  line-height: 1.5;
+}
+
+.screen {
+  text-align: center;
+  width: 100%;
+  max-width: 360px;
+}
+
+/* Avatar container */
+.avatar {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  margin: 30px auto;
+}
+
+/* Monkey head - round */
+.monkeyHead {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  background: #B8956A;
+  border-radius: 50%;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Ears */
+.ear {
+  position: absolute;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #B8956A 0%, #9A7B5A 100%);
+  border-radius: 50%;
+  top: 50px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+
+.ear.left { 
+  left: 5px; 
+}
+
+.ear.right { 
+  right: 5px; 
+}
+
+/* Inner ear - pink */
+.ear::before {
+  content: '';
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #E8B4BC 0%, #D4A5AD 100%);
+  border-radius: 50%;
+  top: 12px;
+  left: 12px;
+}
+
+/* Emphasize right ear when listening */
+.listening .ear.right {
+  transform: scale(1.3);
+}
+
+/* Face area - cream oval */
+.faceArea {
+  position: absolute;
+  width: 150px;
+  height: 140px;
+  background: linear-gradient(135deg, #F5E6D3 0%, #E8D5BD 100%);
+  border-radius: 45% 45% 50% 50%;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 3;
+}
+
+/* Eyes */
+.eye {
+  position: absolute;
+  width: 28px;
+  height: 35px;
+  background: white;
+  border-radius: 50% 50% 50% 50%;
+  top: 25px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.eye.left { 
+  left: 30px; 
+}
+
+.eye.right { 
+  right: 30px; 
+}
+
+/* Pupil */
+.eye::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 20px;
+  background: #2C2416;
+  border-radius: 50%;
+  top: 8px;
+  left: 7px;
+}
+
+/* Highlight in eye */
+.eye::before {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  top: 10px;
+  left: 15px;
+  z-index: 1;
+}
+
+/* Nose - two nostrils */
+.nose {
+  position: absolute;
+  width: 20px;
+  height: 16px;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nose::before,
+.nose::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 10px;
+  background: #2C2416;
+  border-radius: 50%;
+}
+
+.nose::before { 
+  left: 0; 
+}
+
+.nose::after { 
+  right: 0; 
+}
+
+/* Mouth - happy smile curve */
+.mouth {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 3px solid #000;
+  border-color: transparent transparent #000 transparent;
+  border-radius: 0 0 50% 50%;
+  transition: all 0.3s ease;
+}
+
+/* Close mouth when listening */
+.listening .mouth {
+  border-width: 2px;
+}
+
+/* Mouth when talking - slightly bigger */
+.mouth.open {
+  height: 30px;
+  animation: talk 0.3s ease-in-out infinite;
+}
+
+@keyframes talk {
+  0%, 100% { 
+    height: 30px;
+  }
+  50% { 
+    height: 28px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.buttons button {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.buttons .answer { 
+  background: #2ecc71; 
+}
+
+.buttons .decline { 
+  background: #e74c3c; 
+}
+
+.status {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* ChatterMonkey.module.css */
+
+.starRating {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.star {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  
+  /* QUAN TRỌNG: Màu mặc định khi chưa chọn phải là màu xám/nhạt */
+  color: #ccc; 
+  transition: color 0.2s;
+}
+
+/* Chỉ khi có class này mới tô màu vàng */
+.filled {
+  color: #FFD700; /* Màu vàng Gold */
+  transform: scale(1.1); /* Hiệu ứng phóng to nhẹ khi chọn */
+}
+
+.thankYou {
+  color: #4CAF50;
+  font-weight: bold;
+  margin-top: 10px;
+}
